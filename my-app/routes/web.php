@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 //a simple closure route (good for quick testing)
 Route::get('/', function(){
