@@ -22,6 +22,20 @@
             padding: 20px;
             margin-bottom: 16px;
         }
+
+        .badge{
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: white;
+        } 
+
+        .badge-info{
+            background-color: #3490dc;
+        }
+        .badge-success{
+            background-color: #38c172;
+        }           
     </style>
 </head>
 <body>
@@ -32,5 +46,6 @@
     <hr/>
     {{-- @yield is the placeholder that a child will fill in --}}
     @yield('content')
+    @stack('scripts')
 </body>
 </html>

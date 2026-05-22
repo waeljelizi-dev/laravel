@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('title','All Posts')
+
+
 @section('content')
     <h1>All Posts</h1>
+    <x-badge type="success">All posts were loaded successfully!</x-badge>
     @forelse ($posts as $post)
         <div class="card">
             <h2>{{$post['title']}}</h2>
@@ -11,4 +14,9 @@
     @empty
         <p>No posts yet!</p>
     @endforelse
+    @push('scripts')
+        <script>
+            console.log('Posts page loaded');
+        </script>
+    @endpush
 @endsection
