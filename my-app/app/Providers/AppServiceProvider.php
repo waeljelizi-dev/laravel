@@ -19,6 +19,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        View::share('user', (object)[
+            'name' => 'Web Pro',
+            'isAdmin' => true,
+            'isSubscribed' => false,
+        ]);
         View::composer('components.notification-sidebar', function($view) {
             //temporary: hardcoded collection so the component works now
             //replace this in module 2 with a real eloquent query
@@ -27,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
                 (object)['title'=>'Your post was liked', 'body'=> 'Sara liked your post..'],
                 (object)['title'=>'Welcome to the platform', 'body'=> 'Thanks for joining us!'],
             ]);*/
-
+         
             $notifications = collect([
                 (object)[
                     'type'=>'comment',

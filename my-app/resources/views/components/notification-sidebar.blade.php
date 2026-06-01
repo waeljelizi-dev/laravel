@@ -1,4 +1,4 @@
-@props(['notifications','user'])
+@props(['notifications'])
 @once
     @push('styles')
         <link rel="stylesheet" href="/css/notifications.css">
@@ -15,9 +15,19 @@
         @includeWhen(
             $notifications->where('read', false)->count() > 0,
             'partials.notification-badge',
-            ['count' => $notifications->where('read', flase)->count()]
+            ['count' => $notifications->where('read', false)->count()]
         )
     </div>
+    {{-- notifications list --}}
+    <div class="divide-y divide-gray-50 max-h-96 overflow-y-auto">
+        @each(
+            'partials.notification-item',
+            $notifications,
+            'item',
+            'partials.no-notifications'
+        )
+    </div>
+
     {{-- footer--}}
     @if($notifications->count() > 0) 
         <div class="px-4 py-2 border-t border-gray-100 bg-gray-50">

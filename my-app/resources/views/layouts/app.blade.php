@@ -17,6 +17,18 @@
             padding: 0 20px;
             background: #f0f0f0;
         }
+        nav a {
+            margin-right: 16px;
+            text-decoration: none;
+            color: #300ddf;
+        }
+        /*body{
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: #f0f0f0;
+        }
 
         nav a {
             margin-right: 16px;
@@ -24,7 +36,7 @@
             color: #300ddf;
         }
         
-        /*.card {
+        .card {
             
             background: #5243f3;
             margin: 20px 0;
@@ -38,7 +50,7 @@
         .card a {
             text-decoration: none;
             color: #989aff;
-        }*/
+        }
 
         .badge {
             display: block;
@@ -52,19 +64,27 @@
         }
         .badge-success{
             background-color: #38c172;
-        }
+        }*/
         
     </style>
 </head>
-<body>
+<body class="bg-gray-50 min-h-screen">
     <nav>
         <a href="{{route('posts.index')}}">Posts</a>
         <a href="{{route('dashboard.index')}}">Dashboard</a>
         <a href="{{route('about')}}">About</a>
     </nav>
     <hr/>
-    {{-- yield is a placeholder that child views fill in --}}
-    @yield('content')
+    <div class="flex gap-6 max-w-6xl mx-auto px-4 py-8">
+        {{-- Sidebar - $notification injected automatically by View composer --}}
+        <aside class="flex-shrink-0">
+            <x-notification-sidebar :user="$user" />
+        </aside>
+        {{-- yield is a placeholder that child views fill in --}}
+        <main class="flex-1">
+            @yield('content')   
+        </main>
+    </div>
     @stack('scripts')
 </body>
 </html>
