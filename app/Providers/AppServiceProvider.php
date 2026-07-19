@@ -71,7 +71,7 @@ class AppServiceProvider extends ServiceProvider
                     'title' => 'Something happened',
                     'body'=> 'We are not sure what.',
                     'time'=>'yesterday',
-                    'read'=>true
+                    'read'=>false
                 ],
 
             ]);
