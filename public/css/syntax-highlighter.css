@@ -1,0 +1,14 @@
+pre{
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+code{
+    font-family: 'Consolas', 'Monaco', 'monospace';
+}
